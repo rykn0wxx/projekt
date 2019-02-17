@@ -1,0 +1,276 @@
+$input-container-padding: 2px;
+
+$input-label-default-offset: 24px;
+$input-label-default-scale: 1.0;
+$input-label-float-offset: 6px;
+$input-label-float-scale: 0.75;
+$input-label-float-width: $input-container-padding + 16px;
+
+$input-placeholder-offset: $input-label-default-offset;
+
+$input-border-width-default: 1px;
+$input-border-width-focused: 2px;
+$input-line-height: 26px;
+$input-padding-top: 2px;
+
+$input-error-font-size: 12px;
+$input-error-height: 24px;
+$input-error-line-height: $input-error-font-size + 2px;
+$error-padding-top: ($input-error-height - $input-error-line-height) / 2;
+
+$icon-offset: 36px;
+
+$icon-top-offset: ($icon-offset - $input-padding-top - $input-border-width-focused) / 4;
+
+$icon-float-focused-top: -8px;
+
+$input-resize-handle-height: 10px;
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"] {
+	min-height: $input-line-height;
+}
+textarea {
+	resize: none;
+	overflow: hidden;
+	&.md-input {
+		min-height: $input-line-height;
+		-ms-flex-preferred-size: auto; //IE fix
+	}
+}
+label:not(.md-container-ignore) {
+	position: absolute;
+	bottom: 100%;
+	@include rtl(left, 0, auto);
+	@include rtl(right, auto, 0);
+}
+label:not(.md-no-float):not(.md-container-ignore), .md-placeholder {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	order: 1;
+	pointer-events: none;
+	-webkit-font-smoothing: antialiased;
+	@include rtl(padding-left, $input-container-padding + 1px, 0);
+	@include rtl(padding-right, 0, $input-container-padding + 1px);
+	z-index: 1;
+	transform: translate3d(0, $input-label-default-offset + 4, 0) scale($input-label-default-scale);
+	transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
+	max-width: 100%;
+	@include rtl(transform-origin, left top, right top);
+}
+
+.md-form {
+
+	.md-field-group {
+		@include pie-clearfix();
+		display: block;
+		position: relative;
+		padding: 2px;
+		margin: 18px 0 30px 0;
+		border-bottom-color: rgba(0,0,0,.12);
+		box-sizing: border-box;
+		transition: opacity .35s cubic-bezier(.4,0,.2,1);
+		&:hover {
+			background-color: rgba(#f5f5f5, 0.3);
+		}
+		&:not( .md-input-has-value ) input:not( :focus ),
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-ampm-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-day-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-hour-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-millisecond-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-minute-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-month-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-second-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-week-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-year-field,
+	  &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-text {
+	    color: transparent;
+		}
+	}
+	.md-field-input {
+		border-bottom-color: rgba(0,0,0,0.12);
+		order: 2;
+		display: block;
+		margin-top: 0;
+		background: none;
+		padding: 2px 12px 1px;
+		border-width: 0 0 1px;
+		line-height: 26px;
+		height: 30px;
+		-ms-flex-preferred-size: 26px;
+		border-radius: 0;
+		border-style: solid;
+		width: 100%;
+		box-sizing: border-box;
+		float: left;
+		color: transparent;
+		&:focus {
+			outline: none;
+		}
+		&:invalid {
+      outline: none;
+      box-shadow: none;
+    }
+	}
+	.md-field-label {
+		cursor: text;
+		letter-spacing: 0.02em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%;
+		order: 1;
+		pointer-events: none;
+		-webkit-font-smoothing: antialiased;
+		padding-left: 3px;
+		padding-right: 0;
+		// z-index: 5;
+		transform: translate3d(0,28px,0) scale(1);
+		transition: transform .4s cubic-bezier(.25,.8,.25,1),-webkit-transform .4s cubic-bezier(.25,.8,.25,1);
+		max-width: 100%;
+		transform-origin: left top;
+		position: absolute;
+		bottom: 100%;
+		left: 12px;
+		right: auto;
+		color: rgba(0,0,0,0.38);
+		will-change: transform;
+	}
+	.md-field-ripple-line {
+		order: 3;
+		background-color: $p-color;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		transform: scaleX(0);
+		transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+		opacity: 0;
+		z-index: 2;
+	}
+
+	.md-field-group {
+		&.md-input-focused {
+			background-color: rgba(#f5f5f5, 0.3);
+		}
+		&.md-input-has-value {
+			background-color: rgba(#f5f5f5, 0.5);
+		}
+		&.md-input-focused, &.md-input-has-value {
+			.md-field-input {
+				color: rgba(0,0,0,0.87);
+			}
+			.md-field-label {
+				bottom: 110%;
+				transform: translate3d(-6px, 1rem, 0) scale(0.75);
+				color: rgba($p-color, 0.87);
+				transition: transform .4s cubic-bezier(.25,.8,.25,1),width .4s cubic-bezier(.25,.8,.25,1);
+			}
+			.md-field-ripple-line {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+		}
+		&.md-input-invalid {
+			border-bottom-color: rgba($w-dark, 0.75);
+			.md-field-input {
+				border-bottom-color: rgba($w-color, 0.75);
+			}
+			.md-field-label {
+				color: $w-color;
+			}
+			.md-field-ripple-line {
+				background-color: $w-color;
+			}
+		}
+	}
+
+	.md-input-container {
+		> .md-icon {
+			position: absolute;
+			top: $icon-top-offset;
+			@include rtl(left, 2px, auto);
+			@include rtl(right, auto, 2px);
+		}
+		&.md-icon-float {
+			padding-left: 36px;
+			padding-right: 0;
+	    transition: margin-top $swift-ease-out-duration $swift-ease-out-timing-function;
+	    > label {
+	      pointer-events: none;
+	      position: absolute;
+	    }
+	    > .md-icon {
+	      top: $icon-top-offset;
+	      @include rtl(left, 2px, auto);
+	      @include rtl(right, auto, 2px);
+	    }
+			> .md-field-ripple-line {
+				@include rtl(left, $icon-offset, auto);
+	      @include rtl(right, auto, $icon-offset);
+				width: calc(100% - #{$icon-offset});
+			}
+	  }
+		&.md-icon-left, &.md-icon-right {
+	    > label {
+	      &:not(.md-no-float):not(.md-container-ignore), .md-placeholder {
+	        width: calc(100% - #{$icon-offset} - #{$input-label-float-width});
+	      }
+	    }
+		}
+	  &.md-icon-left {
+	    @include rtl(padding-left, $icon-offset, 0);
+	    @include rtl(padding-right, 0, $icon-offset);
+	    > label {
+	      @include rtl(left, $icon-offset, auto);
+	      @include rtl(right, auto, $icon-offset);
+	    }
+	  }
+	  &.md-icon-right {
+	    @include rtl(padding-left, 0, $icon-offset);
+	    @include rtl(padding-right, $icon-offset, 0);
+
+	    > .md-icon:last-of-type {
+	      margin: 0;
+
+	      @include rtl(right, 2px, auto);
+	      @include rtl(left, auto, 2px);
+	    }
+	  }
+		.error {
+			color: #dd2c00;
+			font-size: 12px;
+			line-height: 14px;
+			overflow: hidden;
+			transition: all .3s cubic-bezier(.55,0,.55,.2);
+			padding-right: 5px;
+			padding-left: 0;
+			padding-top: 5px;
+		}
+	}
+
+}

@@ -1,0 +1,20 @@
+@function color-yiq($c) {
+  $r: red($c);
+  $g: green($c);
+  $b: blue($c);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    @return rgba(0,0,0,0.87);
+  } @else {
+    @return rgba(255,255,255,0.87);
+  }
+}
+
+@function shade($color, $percentage) {
+  @return mix(#000000, $color, $percentage);
+}
+@function tint($color, $percentage) {
+  @return mix(#ffffff, $color, $percentage);
+}

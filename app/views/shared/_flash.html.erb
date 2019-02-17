@@ -1,0 +1,18 @@
+<% if flash.any? %>
+  <div class="flash-wrapper">
+
+  <% flash.each do |key, value| -%>
+    <div class="md-body-2 flash flash-<%= key %>"><%= value %></div>
+  <% end -%>
+
+  <%= javascript_tag type: "text/javascript" do -%>
+    setTimeout(function () {
+      const flashElem = $('body .flash-wrapper')
+      flashElem.fadeOut('slow', () => {
+        $(flashElem).remove()
+      })
+    }, 2500)
+  <% end -%>
+
+  </div>
+<% end %>

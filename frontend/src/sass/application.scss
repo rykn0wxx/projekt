@@ -1,0 +1,24 @@
+// Configuration and variables
+
+@import "config/fonts";
+@import "config/variables";
+@import "config/mixins";
+@import "config/functions";
+
+// Base setup
+
+@import "core/structure";
+@import "core/typography";
+@import "core/layouts";
+
+// Components
+
+@import "components/grid";
+@import "components/button";
+@import "components/icon";
+@import "components/whiteframe";
+@import "components/input";
+@import "components/tables";
+@import "components/waves";
+
+@import "core/utilities.scss";

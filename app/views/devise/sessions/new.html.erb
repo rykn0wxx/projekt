@@ -1,0 +1,14 @@
+<h2>Log in</h2>
+
+<%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "md-form col s12", :novalidate => true}  do |f| %>
+  <%= f.input :login, :required => true, :input_html => { :autocomplete => "off", :autofocus => false, :hint => false }, :icon => "person_outline", :wrapper_html => { :class => "md-icon-float md-icon-left" } %>
+  <%= f.input :password, :required => true, :icon => "lock", :input_html => { :autocomplete => "off", :hint => false }, :wrapper_html => { :class => "md-icon-float md-icon-left" } %>
+
+  <div class="form-actions">
+    <%= f.button :button, :class => "md-button" do %>
+      Submit
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

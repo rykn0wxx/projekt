@@ -1,0 +1,215 @@
+$card-padding: 16px;
+$card-box-shadow: $whiteframe-shadow-2dp;
+.md-card {
+	box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: $baseline-grid;
+
+  box-shadow: $card-box-shadow;
+	background-color: rgba(255,255,255,0.95);
+	color: rgba(0,0,0,0.87);
+	border-radius: 2px;
+	.md-card-title {
+    padding: 3 * $card-padding / 2 $card-padding $card-padding;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+
+    & + .md-card-content {
+      padding-top: 0;
+    }
+
+    .md-card-title-text {
+      flex: 1;
+      flex-direction: column;
+      display: flex;
+
+      .md-subhead {
+        padding-top: 0;
+        font-size: 14px;
+      }
+
+      &:only-child {
+        .md-subhead {
+          padding-top: 3 * $card-padding / 4;
+        }
+      }
+    }
+  }
+	.md-card-content {
+    display: block;
+    padding: $card-padding;
+
+    & > p {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .md-media-xl {
+      height: 240px;
+      width: 240px;
+    }
+  }
+	.md-actions, .md-card-actions {
+    margin: $baseline-grid;
+
+    &.layout-column {
+      .md-btn {
+        &:not(.md-icon-btn) {
+          margin: $baseline-grid / 4 0;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+
+        &.md-icon-btn {
+          margin-top: 3 * $baseline-grid / 4;
+          margin-bottom: 3 * $baseline-grid / 4;
+        }
+      }
+    }
+
+    .md-card-icon-actions {
+      flex: 1;
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &:not(.layout-column) .md-btn {
+      &:not(.md-icon-btn) {
+        margin: 0 $baseline-grid * .5;
+
+        &:first-of-type {
+          @include rtl-prop(margin-left, margin-right, 0, auto);
+        }
+
+        &:last-of-type {
+          @include rtl-prop(margin-right, margin-left, 0, auto);
+        }
+      }
+
+      &.md-icon-btn {
+        margin-left: 3 * $baseline-grid / 4;
+        margin-right: 3 * $baseline-grid / 4;
+
+        &:first-of-type {
+          @include rtl-prop(margin-left, margin-right, 3 * $baseline-grid / 2, auto);
+        }
+
+        &:last-of-type {
+          @include rtl-prop(margin-right, margin-left, 3 * $baseline-grid / 2, auto);
+        }
+      }
+
+      & + .md-card-icon-actions {
+        flex: 1;
+        justify-content: flex-end;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+	p {
+	  font-size: 1.6rem;
+	  font-weight: 400;
+	  letter-spacing: 0.010em;
+	  line-height: 1.6em;
+	  margin: 0.8em 0 1.6em;
+	}
+
+	.layout-row {
+		flex: 0 1 auto;
+	}
+
+	&.bmd-card {
+		border: 0;
+		margin-bottom: 30px;
+		margin-top: 30px;
+		border-radius: 4px;
+		width: 100%;
+		box-shadow: $whiteframe-shadow-2dp;
+
+		.md-toolbar._md-toolbar-transitions {
+			background: none;
+		}
+		.md-card-title {
+			border-radius: 3px;
+			margin-top: -20px;
+			padding: 15px;
+			box-shadow: $whiteframe-shadow-4dp;
+			z-index: 3;
+			position: relative;
+			margin: -20px 15px 0;
+			background-color: rgba($p-dark,0.85);
+			color: color-yiq($p-color);
+
+			.md-card-title-text {
+				margin-bottom: 3px;
+				margin-top: 0;
+			}
+		}
+
+		.md-card-content {
+			padding: 15px 20px;
+			flex: 1 1 auto;
+		}
+
+	}
+}
+
+
+@mixin card_theme($color_value, $name_value) {
+	$card-border-radius: 2px;
+	$base-foreground: color-yiq($color_value);
+	$foreground-1: rgba($base-foreground, 0.87);
+	$foreground-2: rgba($base-foreground, 0.54);
+	$background-hue-1: $color_value;
+
+	.md-card.md-#{$name_value} {
+	  color: $foreground-1;
+	  background-color: $background-hue-1;
+	  border-radius: $card-border-radius;
+	  .md-card-header {
+	    .md-card-header-text {
+	      .md-subhead {
+	        color: $foreground-2;
+	      }
+	    }
+	  }
+	  .md-card-title {
+	    .md-card-title-text {
+	      &:not(:only-child) {
+	        .md-subhead {
+	          color: $foreground-2;
+	        }
+	      }
+	    }
+	  }
+		.md-card-content {
+			color: rgba($base-foreground, 1);
+		}
+	}
+
+	.md-card, .md-card.card-custom {
+		.md-card-title.md-#{$name_value} {
+			background: linear-gradient(60deg, $color_value, shade($color_value, 10%));
+			color: $base-foreground;
+			box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 10px -5px rgba(tint($color_value, 50%), 0.4);
+		}
+	}
+
+}
+
+@include card_theme($p-color, 'primary');

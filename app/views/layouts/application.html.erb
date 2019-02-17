@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" class="rykn0wxx no-js">
+	<head>
+		<%= render 'shared/head' %>
+  </head>
+
+  <body class="layout-row">
+		<%= render "shared/flash" %>
+
+		<section class="layout-column flex" tabindex="-1">
+			<%= render "shared/main" %>
+		</section>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': 'true' %>
+  </body>
+</html>
