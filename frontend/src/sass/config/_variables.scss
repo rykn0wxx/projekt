@@ -235,6 +235,7 @@ $ASBESTOS: rgb(127, 140, 141);
 
 $z_colors: ();
 $z_colors: map-merge(
+
 	(
 		'primary': $p-color,
 		'secondary': $s-color,
@@ -259,7 +260,9 @@ $z_colors: map-merge(
 		'pumpkin': $PUMPKIN,
 		'pomegranate': $POMEGRANATE,
 		'silver': $SILVER,
-		'asbestos': $ASBESTOS
+		'asbestos': $ASBESTOS,
+		'white': $white,
+		'black': $black
 	),
 	$z_colors
 );
