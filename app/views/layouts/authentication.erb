@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" class="rykn0wxx no-js">
+	<head>
+		<%= render 'shared/head' %>
+  </head>
+
+  <body class="authentication">
+		<%= render "shared/flash" %>
+        <div class="layout-fill layout-row layout-align-gt-sm-end-stretch layout-align-center-center">
+            <div class="md-card no-margin flex-gt-sm-40 flex-80 center pt-20">
+                <div class="md-card-image">
+                    <%= link_to root_path, :class => "md-button no-padding no-margin logo-link no-border-radius" do %>
+                        <%= inline_svg "logo.svg", :class => "logo" %>
+                    <% end %>
+                </div>
+                <div class="md-card-title left-align">
+                    <div class="md-card-title-text">
+                        <span class="md-headline">Register Now</span>
+                        <span class="md-subhead no-padding">Create your account and enjoy</span>
+                    </div>
+                </div>
+                <div class="md-card-content left-align">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': 'true' %>
+  </body>
+</html>

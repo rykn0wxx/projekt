@@ -3,24 +3,41 @@
 *******************/
 
 .hide {
-  display: none !important;
+	display: none !important;
 }
 // Text Align
 .left-align {
-  text-align: left;
+	text-align: left;
 }
 .right-align {
-  text-align: right
+	text-align: right;
 }
-.center, .center-align {
-  text-align: center;
+.center,
+.center-align {
+	text-align: center;
 }
 .no-padding {
-  padding: 0 !important;
+	padding: 0 !important;
 }
 .no-margin {
-  margin: 0 !important;
+	margin: 0 !important;
+}
+.no-border-radius {
+	border-radius: 0 !important;
+}
+
+.pt-20 {
+	padding-top: 20px !important;
 }
 .br3 {
 	border-radius: 3px !important;
+}
+
+@each $color, $value in $z_colors {
+	.bg-#{$color} {
+		background-color: $value !important;
+	}
+	.color-#{$color} {
+		color: $value !important;
+	}
 }

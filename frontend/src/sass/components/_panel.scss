@@ -1,0 +1,23 @@
+.panel {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	&--small {
+		min-height: 128px;
+	}
+}
+
+.content {
+	display: block;
+	width: 100%;
+	> .panel > * {
+		flex: 1 1 0%;
+	}
+}
+.bbox {
+	padding: 8px;
+	text-align: center;
+	background-color: #3949ab;
+	color: $white;
+	box-sizing: border-box;
+}

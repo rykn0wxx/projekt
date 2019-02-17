@@ -1,83 +1,94 @@
-html, body {
-  height: 100%;
-  position: relative;
+html,
+body {
+	height: 100%;
+	position: relative;
 }
 body {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 	overflow: hidden;
-  max-width: 100%;
-  max-height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
 [tabindex='-1']:focus {
-  outline: none;
+	outline: none;
 }
 .inset {
-  padding: 10px;
+	padding: 10px;
 }
-a, button {
-  font-weight: normal;
-  background-color: inherit;
-  text-align: left;
-  border: none;
-  padding: 0;
-  margin: 0;
+a,
+button {
+	font-weight: normal;
+	background-color: inherit;
+	text-align: left;
+	border: none;
+	padding: 0;
+	margin: 0;
 }
-select, button, textarea, input {
-  vertical-align: baseline;
+select,
+button,
+textarea,
+input {
+	vertical-align: baseline;
 }
-input[type="reset"], input[type="submit"], html input[type="button"], button {
-  cursor: pointer;
-  -webkit-appearance: button;
-  &[disabled] {
-    cursor: default;
-  }
+input[type="reset"],
+input[type="submit"],
+html input[type="button"],
+button {
+	cursor: pointer;
+	-webkit-appearance: button;
+	&[disabled] {
+		cursor: default;
+	}
 }
 textarea {
-  vertical-align: top;
-  overflow: auto;
+	vertical-align: top;
+	overflow: auto;
 }
 input {
-  &[type="search"] {
-    -webkit-appearance: textfield;
-    box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button {
-      -webkit-appearance: none;
-    }
-  }
-  &:-webkit-autofill {
-    text-shadow: none;
-  }
+	&[type="search"] {
+		-webkit-appearance: textfield;
+		box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+		}
+	}
+	&:-webkit-autofill {
+		text-shadow: none;
+	}
 }
 .md-shadow-bottom-z-1 {
-  @include md-shadow-bottom-z-1();
+	@include md-shadow-bottom-z-1();
 }
 .md-shadow-bottom-z-2 {
-  @include md-shadow-bottom-z-2();
+	@include md-shadow-bottom-z-2();
 }
 .md-padding {
-  padding: 8px;
+	padding: 8px;
 }
 .md-margin {
-  margin: 8px;
+	margin: 8px;
 }
 @media (min-width: $layout-breakpoint-sm) {
-  .md-padding {
-    padding: 16px;
-  }
+	.md-padding {
+		padding: 16px;
+	}
 }
 
 .rykn0wxx {
 	body {
 		color: $body-font-color;
 		background-color: $body-bg;
+		&.authentication {
+			background-color: #d2d6de;
+			color: #333;
+		}
 	}
 }
-
 
 .flash-wrapper {
 	position: absolute;
@@ -96,5 +107,37 @@ input {
 	}
 	.flash-alert {
 		background-color: rgba($w-color, 0.85);
+	}
+}
+
+.rykn0wxx {
+	.authentication {
+		.logo {
+			width: 50px;
+			height: 50px;
+			&-link {
+				display: flex !important;
+				align-items: center;
+				align-content: center;
+				justify-content: center;
+				max-width: 100%;
+			}
+		}
+		.md-card-title {
+			flex: 0 0 auto;
+		}
+		.md-card-content-items {
+			display: flex;
+			flex-direction: column;
+			background-color: pink;
+			height: 100%;
+		}
+		.md-link {
+			margin-left: 5px;
+			color: $s-color;
+			font-weight: 500;
+			letter-spacing: .01em;
+			font-size: 14px;
+		}
 	}
 }
