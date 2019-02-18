@@ -121,7 +121,21 @@ input {
 				align-content: center;
 				justify-content: center;
 				max-width: 100%;
+				&:hover {
+					background-color: transparent;
+					g {
+						transition: all 0.3s ease-in-out;
+						fill: $s-color;
+					}
+				}
+				g {
+					fill: $p-color;
+				}
 			}
+		}
+		.md-card {
+			// background-color: rgba($p-dark, 0.5);
+			order: 1;
 		}
 		.md-card-title {
 			flex: 0 0 auto;
@@ -138,6 +152,21 @@ input {
 			font-weight: 500;
 			letter-spacing: .01em;
 			font-size: 14px;
+		}
+		.showcase {
+			&::after {
+				content: '';
+				height: 100vh;
+				width: 100%;
+				background-image: url(../img/bg-registration2.jpeg);
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				display: block;
+				position: fixed;
+				z-index: -1;
+				filter: blur(2px);
+			}
 		}
 	}
 }

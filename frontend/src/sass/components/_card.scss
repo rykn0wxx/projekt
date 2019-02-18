@@ -213,3 +213,4 @@ $card-box-shadow: $whiteframe-shadow-2dp;
 }
 
 @include card_theme($p-color, 'primary');
+@include card_theme($p-dark, 'primary-dark');

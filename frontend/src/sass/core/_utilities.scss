@@ -32,6 +32,9 @@
 .br3 {
 	border-radius: 3px !important;
 }
+.bg-transparent {
+	background-color: transparent !important;
+}
 
 @each $color, $value in $z_colors {
 	.bg-#{$color} {
