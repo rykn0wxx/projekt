@@ -1,16 +1,24 @@
-<%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "md-form col s12", :novalidate => true}  do |f| %>
-  <%= f.input :login, :required => true, :input_html => { :autocomplete => "off", :autofocus => false, :hint => false }, :icon => "person_outline", :wrapper_html => { :class => "md-icon-float md-icon-left" } %>
-  <%= f.input :password, :required => true, :icon => "lock", :input_html => { :autocomplete => "off", :hint => false }, :wrapper_html => { :class => "md-icon-float md-icon-left" } %>
+<div class="md-card-title left-align">
+    <div class="md-card-title-text">
+        <span class="md-headline">Sign In</span>
+        <span class="md-subhead no-padding">Enter your credential below</span>
+    </div>
+</div>
+<div class="md-card-content left-align">
+  <%= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "md-form col s12", :novalidate => true}  do |f| %>
+    <%= f.input :login, :required => true, :label_html => { :class => "color-silver" }, :input_html => { :autocomplete => "off", :autofocus => false, :hint => false, :class => "color-asbestos" }, :icon => "person_outline", :wrapper_html => { :class => "md-icon-float md-icon-left bg-transparent" } %>
+    <%= f.input :password, :required => true, :label_html => { :class => "color-silver" }, :icon => "lock", :input_html => { :autocomplete => "off", :hint => false, :class => "color-asbestos" }, :wrapper_html => { :class => "md-icon-float md-icon-left bg-transparent" } %>
 
-  <div class="form-actions">
-    <%= f.button :button, :class => "md-button" do %>
-      Submit
-    <% end %>
+    <div class="form-actions">
+      <%= f.button :button, :class => "md-button" do %>
+        Submit
+      <% end %>
+    </div>
+  <% end %>
+  <div class="right-align">
+    <span class="md-caption">
+      Don't have an account?
+      <%= link_to "Sign up", new_registration_path(resource_name), :class => "md-link" %>
+    </span>
   </div>
-<% end %>
-<div class="right-align">
-  <span class="md-caption">
-    Already have an account?
-    <%= link_to "Sign up", new_registration_path(resource_name), :class => "md-link" %>
-  </span>
 </div>
